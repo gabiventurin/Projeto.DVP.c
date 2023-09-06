@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+float valorTotal;
+float imposto = 0.935; 
+int custo;
+int x; // condição do imposto 1 para sim e 0 para nao 
+float valorFinal;
+float dezporcento;
+float valorLiquido1;
+
+
+// calculo do lucro liquido 1, ou seja, o lucro sem os 10% da empresa e, eventualmente sem o imposto
+
+float calculoLucroLiquido1 (int valorTotal, float imposto, int custo, int x){
+  float valorTotal1; 
+  if (x==1) 
+  {
+  valorTotal1 = valorTotal*imposto;  
+  printf("Valor do imposto: %.2f:\n\n" , 700 - valorTotal1 );
+  printf("valor do lucro sem o imposto :%.2f\n\n" , valorTotal1 );
+  valorFinal = valorTotal1*0.9; 
+  dezporcento = valorTotal1*0.1;
+  printf("A porcentagem do lucro para a empresa é: %.2f\n\n" , dezporcento );
+    printf("O lucro total da empresa nesse evento é %.2f\n\n" , valorFinal); 
+  }
+    else
+  {
+ valorFinal = valorTotal*0.9; 
+dezporcento = valorTotal*0.1;
+  printf("A porcentagem do lucro para a empresa é: %.2f\n\n" , dezporcento );
+    printf("O lucro total da empresa nesse evento é %.2f\n\n" , valorFinal); 
+  }
+  
+    return valorFinal; 
+}
+    
+
+
+float valorLiquido2( float resultadof1, float custo){
+float valorfinal1 = resultadof1 - custo;
+  float valorsocio = valorfinal1/2;
+ printf("Até agora o valor final para cada um dos sócios é: %.2f" , valorsocio );
+return valorsocio;
+}
+
+
+
+
+
+
+
+int main(){
+printf("Cálculo dos lucros DVP:\n");
+printf("Qual é o lucro bruto do evento?\n");
+scanf("%f", &valorTotal);
+printf("Teve imposto? (Digite 1 para sim e 0 para não)\n");
+scanf("%i", &x);
+float valorLiquido1 =  calculoLucroLiquido1 ( valorTotal , imposto , custo, x);
+  printf("Qual foi o custo do evento?\n");
+  scanf("%i" , &custo);
+
+
+  valorLiquido2( valorLiquido1 , custo);
+
+return 0;
+  
+}
